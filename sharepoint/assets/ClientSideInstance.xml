@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+    <ClientSideComponentInstance
+        Title="Mauri-Ora-Rateable-Announcements"
+        Location="ClientSideExtension.ApplicationCustomizer"
+        ComponentId="188a73d9-a68e-381e-4625-a5f0cf7c0024"
+        Properties="{&quot;listName&quot;:&quot;Announcements&quot;, &quot;acknowledgedListName&quot;:&quot;AcknowledgedAnnouncements&quot;, &quot;siteUrl&quot;:&quot;/sites/CTest&quot;}">
+    </ClientSideComponentInstance>
+</Elements>

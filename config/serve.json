@@ -1,0 +1,33 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/core-build/serve.schema.json",
+  "port": 4321,
+  "https": true,
+  "serveConfigurations": {
+    "default": {
+      "pageUrl": "https://denniskuhn.sharepoint.com/sites/CTest/SitePages/Home.aspx",
+      "customActions": {
+        "188a73d9-a68e-381e-4625-a5f0cf7c0024": {
+          "location": "ClientSideExtension.ApplicationCustomizer",
+          "properties": {
+            "listName": "Announcements",
+            "acknowledgedListName": "AcknowledgedAnnouncements",
+            "siteUrl": "/sites/CTest"
+          }
+        }
+      }
+    },
+    "mauriora": {
+      "pageUrl": "https://mauriorae3.sharepoint.com/sites/DevOps/SitePages/Home.aspx",
+      "customActions": {
+        "188a73d9-a68e-381e-4625-a5f0cf7c0024": {
+          "location": "ClientSideExtension.ApplicationCustomizer",
+          "properties": {
+            "listName": "Announcements",
+            "acknowledgedListName": "AcknowledgedAnnouncements",
+            "siteUrl": "/sites/DevOps"
+          }
+        }
+      }
+    }
+  }
+}
