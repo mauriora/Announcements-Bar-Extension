@@ -1,7 +1,7 @@
 import * as React from 'react';
-import { FunctionComponent, useCallback, useEffect, useState } from 'react';
+import { FunctionComponent, useCallback, useEffect, useMemo, useState } from 'react';
 import { RateableAnnouncement } from '../models/RateableAnnouncement';
-import { create as createController, ListItem, SharePointList, SharePointModel } from '@mauriora/controller-sharepoint-list';
+import { create as createController, ListItem, SharePointList, SharePointModel, getCurrentUser } from '@mauriora/controller-sharepoint-list';
 import { ErrorBoundary, useAsyncError } from '@mauriora/utils-spfx-controls-react';
 import { Spinner } from '@fluentui/react';
 import { AnnouncementsList } from './AnnoncementsList';
@@ -25,8 +25,9 @@ const AnnouncementsLoader: FunctionComponent<IAnnouncementsProps> = ({ culture, 
     const [model, setModel] = useState<SharePointModel<RateableAnnouncement>>(undefined);
     const [acknowledgements, setAcknowledgements] = useState<SharePointModel<ListItem>>(undefined);
     const throwError = useAsyncError();
+    const currentUser = useMemo( () => getCurrentUser(''), [] );
 
-    console.log(`Announcements:AnnouncementsLoader render`, { controller, listName, siteUrl, culture });
+    console.log(`Announcements:AnnouncementsLoader render`, { currentUser, controller, listName, siteUrl, culture });
 
     const getController = useCallback(
         async () => {
@@ -37,7 +38,7 @@ const AnnouncementsLoader: FunctionComponent<IAnnouncementsProps> = ({ culture, 
                     ) : 
                     undefined;
                 
-                console.log(`Announcements:AnnouncementsLoader.getController controller.init`, { newController, listName, siteUrl, culture });
+                console.log(`Announcements:AnnouncementsLoader.getController controller.init`, { newController, listName, siteUrl, currentUser, culture });
                 await newController.init();
 
                 const now: string = new Date().toISOString();
@@ -45,9 +46,9 @@ const AnnouncementsLoader: FunctionComponent<IAnnouncementsProps> = ({ culture, 
                     RateableAnnouncement,
                     `(StartDate le datetime'${now}' or StartDate eq null) and (Expires ge datetime'${now}' or Expires eq null)`
                 );
-                console.log(`Announcements:AnnouncementsLoader.getController model.loadAllRecords()`, { newModel, newController, listName, siteUrl, culture, now });
+                console.log(`Announcements:AnnouncementsLoader.getController model.loadAllRecords()`, { newModel, newController, listName, siteUrl, currentUser, culture, now });
                 await newModel.loadAllRecords();
-                console.log(`Announcements:AnnouncementsLoader.getController setting context`, { newModel, newController, listName, siteUrl, culture });
+                console.log(`Announcements:AnnouncementsLoader.getController setting context`, { newModel, newController, listName, siteUrl, currentUser, culture });
 
                 setController(newController);
                 setModel(newModel);
@@ -64,16 +65,16 @@ const AnnouncementsLoader: FunctionComponent<IAnnouncementsProps> = ({ culture, 
                 const newController = acknowledgedListName && siteUrl ?
                     await createController( acknowledgedListName, siteUrl ) : undefined;
                 
-                console.log(`Announcements:AnnouncementsLoader.getAcknowledgements controller.init`, { newController, acknowledgedListName, siteUrl });
+                console.log(`Announcements:AnnouncementsLoader.getAcknowledgements controller.init`, { newController, acknowledgedListName, currentUser, siteUrl });
                 await newController.init();
 
                 const newModel = await newController.addModel(
                     ListItem,
-                    `(Author/EMail eq 'dennis@kuhn.geek.nz')`
+                    `(Author/EMail eq '${currentUser.UserPrincipalName}')`
                 );
-                console.log(`Announcements:AnnouncementsLoader.getAcknowledgements model.loadAllRecords()`, { newModel, newController, acknowledgedListName, siteUrl });
+                console.log(`Announcements:AnnouncementsLoader.getAcknowledgements model.loadAllRecords()`, { newModel, newController, acknowledgedListName, currentUser, siteUrl });
                 await newModel.loadAllRecords();
-                console.log(`Announcements:AnnouncementsLoader.getAcknowledgements setting context`, { newModel, newController, acknowledgedListName, siteUrl });
+                console.log(`Announcements:AnnouncementsLoader.getAcknowledgements setting context`, { newModel, newController, acknowledgedListName, currentUser, siteUrl });
                 setAcknowledgements(newModel);
             } catch (controllerError) {
                 throwError(controllerError);
