@@ -4,10 +4,10 @@ import { Expose, Type } from 'class-transformer';
 
 export class RateableAnnouncement extends Announcement {
     @Expose({ name: 'Urgent' })
-    public urgent: boolean = undefined;
+    public urgent: boolean;
 
     @Expose({ name: 'StartDate' })
-    public startDate: string = undefined;
+    public startDate: string;
 
     @Type( () => Link )
     @Expose({name: 'URL'})
@@ -15,5 +15,5 @@ export class RateableAnnouncement extends Announcement {
 
     @Type( () => UserLookup )
     @Expose({name: 'ReportOwner'})
-    public contentOwner: UserLookup = undefined;
+    public contentOwner: UserLookup;
 }
