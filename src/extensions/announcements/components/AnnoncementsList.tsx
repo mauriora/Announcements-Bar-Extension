@@ -6,6 +6,7 @@ import { fromUserLookup, CommentsField, LikesCountField, PersonaHoverCard, Ratin
 import { Stack, MessageBar, MessageBarType, Link, Text, StackItem, PersonaSize, IMessageBarStyles, IStackTokens } from '@fluentui/react';
 import { observer } from 'mobx-react-lite';
 import { AcknkowledgedContext, ModelContext } from './Announcements';
+import { ListItem, SharePointModel } from '@mauriora/controller-sharepoint-list';
 
 interface RenderAnnouncementsProps {
     culture: string;
@@ -70,7 +71,7 @@ export const AnnouncementsList: FunctionComponent<RenderAnnouncementsProps> = ob
     const [acknowledgedAnnouncements, setAcknowledgedAnnouncements] = useState<number[]>([]);
     const announcements = useMemo(
         () => model.records
-            .filter(announcement => acknowledgedAnnouncements.indexOf(announcement.id) < 0),
+            .filter(announcement => (!acknowledgedAnnouncements.includes(announcement.id))),
         [model.records, model.records.length, acknowledgedAnnouncements, acknowledgedAnnouncements.length]
     );
 
@@ -113,20 +114,20 @@ export const AnnouncementsList: FunctionComponent<RenderAnnouncementsProps> = ob
                                 <CommentsField
                                     item={announcement}
                                     newCommentPlaceholder={strings.AddCommentPlaceholder}
-                                    model={model}                                    
-                                    property=''
+                                    model={model as unknown as SharePointModel<ListItem>}                                    
+                                    property='id'
                                     info={undefined}
                                     commentedText={strings.Commented}
                                 />
                             </StackItem>
                             {'Likes' === announcement.controller.votingExperience ?
                                 <StackItem>
-                                    <LikesCountField mini model={model} item={announcement} info={model.propertyFields.get('likesCount')} property={'likesCount'} />
+                                    <LikesCountField mini model={model as unknown as SharePointModel<ListItem>} item={announcement} info={model.propertyFields.get('likesCount')} property={'likesCount'} />
                                 </StackItem>
                                 :
                                 'Ratings' === announcement.controller.votingExperience ?
                                     <StackItem>
-                                        <RatingField model={model} item={announcement}  info={model.propertyFields.get('averageRating')} property={'averageRating'} />
+                                        <RatingField model={model as unknown as SharePointModel<ListItem>} item={announcement}  info={model.propertyFields.get('averageRating')} property={'averageRating'} />
                                     </StackItem>
                                     :
                                     undefined

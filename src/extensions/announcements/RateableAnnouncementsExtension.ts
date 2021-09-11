@@ -56,7 +56,5 @@ export default class RateableAnnouncementsExtension
         ReactDOM.render(elem, header.domElement);
 
         console.log(`${this.context.manifest.alias} [${this.context.manifest.id}] version=${this.context.manifest.version} onInit finished`, {propertiesDeconstructed: {...this.properties}, properties: this.properties, context: this.context, contextDeconstructed: {...this.context}});
-
-        return Promise.resolve<void>();
     }
 }

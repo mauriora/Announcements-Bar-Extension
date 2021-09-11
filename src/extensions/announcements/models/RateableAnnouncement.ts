@@ -11,7 +11,7 @@ export class RateableAnnouncement extends Announcement {
 
     @Type( () => Link )
     @Expose({name: 'URL'})
-    public url: Link = undefined;
+    public url: Link;
 
     @Type( () => UserLookup )
     @Expose({name: 'ReportOwner'})
