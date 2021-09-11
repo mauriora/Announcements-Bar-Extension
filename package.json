@@ -1,6 +1,6 @@
 {
     "name": "@mauriora/rateable-announcements",
-    "version": "0.0.5",
+    "version": "0.0.6",
     "private": true,
     "main": "lib/index.js",
     "author": {
@@ -17,7 +17,8 @@
     },
     "scripts": {
         "initguids": "node generateNewGuidsResetVersions.js",
-        "build": "gulp clean && gulp build --ship && gulp bundle --ship && gulp package-solution --ship",
+        "lint": "eslint .",
+        "build": "gulp clean && gulp bundle --ship && gulp package-solution --ship",
         "clean": "gulp clean",
         "test": "gulp test",
         "serve": "gulp serve-deprecated"
@@ -46,7 +47,7 @@
         "reflect-metadata": "^0.1.13"
     },
     "devDependencies": {
-        "@microsoft/rush-stack-compiler-3.9": "^0.4.46",
+        "@microsoft/rush-stack-compiler-4.2": "^0.1.1",
         "@microsoft/sp-build-web": "^1.12.1",
         "@microsoft/sp-module-interfaces": "^1.12.1",
         "@microsoft/sp-tslint-rules": "^1.12.1",
@@ -57,7 +58,12 @@
         "@types/react": "16.9.36",
         "@types/react-dom": "16.9.8",
         "@types/webpack-env": "1.13.1",
+        "@typescript-eslint/eslint-plugin": "^4.31.0",
+        "@typescript-eslint/parser": "^4.31.0",
         "ajv": "~5.2.2",
-        "gulp": "^4.0.2"
+        "eslint": "^7.32.0",
+        "eslint-plugin-react": "^7.25.1",
+        "gulp": "^4.0.2",
+        "gulp-eslint7": "^0.3.1"
     }
 }

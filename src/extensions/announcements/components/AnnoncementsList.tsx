@@ -65,7 +65,7 @@ const AnnouncementContent: FunctionComponent<AnnouncementContentProps> = observe
     </Stack>
 );
 
-export const AnnouncementsList: FunctionComponent<RenderAnnouncementsProps> = observer(({  }) => {    
+export const AnnouncementsList: FunctionComponent<RenderAnnouncementsProps> = observer(() => {    
     const model = useContext(ModelContext);
     const acknowledgedModel = useContext(AcknkowledgedContext);
     const [acknowledgedAnnouncements, setAcknowledgedAnnouncements] = useState<number[]>([]);
@@ -101,7 +101,7 @@ export const AnnouncementsList: FunctionComponent<RenderAnnouncementsProps> = ob
 
     return <Stack tokens={stackTokens}>
         {announcements.map(announcement =>
-            <StackItem>
+            <StackItem key={`announcement-stack-item-${announcement.id}`}>
                 <MessageBar
                     messageBarType={(announcement.urgent ? MessageBarType.error : MessageBarType.warning)}
                     isMultiline={false}

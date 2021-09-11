@@ -43,8 +43,8 @@ export default class RateableAnnouncementsExtension
             return Promise.reject(error);
         }
 
-        let site = this.context.pageContext.site;
-        let tenantUrl = site.absoluteUrl.replace(site.serverRelativeUrl, "");
+        const site = this.context.pageContext.site;
+        const tenantUrl = site.absoluteUrl.replace(site.serverRelativeUrl, "");
 
         const elem: React.ReactElement<IAnnouncementsProps> = React.createElement(Announcements, { 
             siteUrl: `${tenantUrl}${this.properties.siteUrl}`, 
