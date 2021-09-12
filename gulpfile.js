@@ -24,4 +24,3 @@ const eslintSubTask = build.subTask('eslint', function (gulp, buildOptions, done
 build.rig.addPreBuildTask(build.task('eslint-task', eslintSubTask));
 
 build.initialize(require('gulp'));
-
