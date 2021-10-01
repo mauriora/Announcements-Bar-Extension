@@ -31,6 +31,7 @@ export default class RateableAnnouncementsExtension
         await Controller.init(this.context);
 
         if (!this.properties.siteUrl || !this.properties.listName || !this.properties.acknowledgedListName) {
+            console.error(`${this.context.manifest.alias} [${this.context.manifest.id}] version=${this.context.manifest.version} onInit Missing required configuration parameters`, { context: this.context, properties: this.properties });
             const e: Error = new Error('Missing required configuration parameters');
             Log.error(QUALIFIED_NAME, e);
             return Promise.reject(e);
@@ -38,6 +39,7 @@ export default class RateableAnnouncementsExtension
         const header = this.context.placeholderProvider.tryCreateContent(PlaceholderName.Top);
 
         if (!header) {
+            console.error(`${this.context.manifest.alias} [${this.context.manifest.id}] version=${this.context.manifest.version} onInit Could not find placeholder Top`, { context: this.context, properties: this.properties });
             const error = new Error('Could not find placeholder Top');
             Log.error(QUALIFIED_NAME, error);
             return Promise.reject(error);
