@@ -22,12 +22,12 @@ AcknkowledgedContext.displayName = 'AcknkowledgedContext';
 
 const AnnouncementsLoader: FunctionComponent<IAnnouncementsProps> = ({ culture, listName, siteUrl, acknowledgedListName }) => {
     const [controller, setController] = useState<SharePointList>(undefined);
-    const [model, setModel] = useState<SharePointModel<RateableAnnouncement>>(undefined);
+    const [announcements, setAnnouncements] = useState<SharePointModel<RateableAnnouncement>>(undefined);
     const [acknowledgements, setAcknowledgements] = useState<SharePointModel<ListItem>>(undefined);
     const throwError = useAsyncError();
     const currentUser = useMemo(() => getCurrentUser(''), []);
 
-    console.log(`Announcements:AnnouncementsLoader render`, { currentUser, controller, listName, siteUrl, culture });
+    console.log(`Announcements:AnnouncementsLoader render`, { currentUser, announcements, controller, acknowledgements, listName, siteUrl, culture });
 
     const getController = useCallback(
         async () => {
@@ -40,13 +40,11 @@ const AnnouncementsLoader: FunctionComponent<IAnnouncementsProps> = ({ culture, 
                 );
                 if(0 === newModel.records.length ) 
                 {
-                    console.log(`Announcements:AnnouncementsLoader.getController model.loadAllRecords('${now}')`, { newModel, newController, listName, siteUrl, currentUser, culture, now });
                     await newModel.loadAllRecords();
                 }
-                console.log(`Announcements:AnnouncementsLoader.getController setting context`, { newModel, newController, listName, siteUrl, currentUser, culture });
 
                 setController(newController);
-                setModel(newModel);
+                setAnnouncements(newModel);
             } catch (controllerError) {
                 throwError(controllerError);
             }
@@ -59,18 +57,14 @@ const AnnouncementsLoader: FunctionComponent<IAnnouncementsProps> = ({ culture, 
             try {
                 const newController = await getCreateByIdOrTitle(acknowledgedListName, siteUrl);
 
-                console.log(`Announcements:AnnouncementsLoader.getAcknowledgements controller.init`, { newController, acknowledgedListName, currentUser, siteUrl });
-
                 const newModel = await newController.addModel(
                     ListItem,
                     `(Author/EMail eq '${currentUser.UserPrincipalName}')`
                 );
                 if(0 === newModel.records.length ) 
                 {
-                    console.log(`Announcements:AnnouncementsLoader.getAcknowledgements model.loadAllRecords(${currentUser.UserPrincipalName})`, { newModel, newController, acknowledgedListName, currentUser, siteUrl });
                     await newModel.loadAllRecords();
                 }
-                console.log(`Announcements:AnnouncementsLoader.getAcknowledgements setting context`, { newModel, newController, acknowledgedListName, currentUser, siteUrl });
                 setAcknowledgements(newModel);
             } catch (controllerError) {
                 throwError(controllerError);
@@ -82,9 +76,9 @@ const AnnouncementsLoader: FunctionComponent<IAnnouncementsProps> = ({ culture, 
     useEffect(() => { getController(); }, [listName, siteUrl]);
     useEffect(() => { getAcknowledgements(); }, [acknowledgedListName, siteUrl]);
 
-    return model && acknowledgements ?
+    return announcements && acknowledgements ?
         <AcknkowledgedContext.Provider value={acknowledgements}>
-            <ModelContext.Provider value={model}>
+            <ModelContext.Provider value={announcements}>
                 <AnnouncementsList culture={culture} />
             </ModelContext.Provider>
         </AcknkowledgedContext.Provider>
