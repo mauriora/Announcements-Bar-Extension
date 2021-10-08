@@ -3,7 +3,7 @@
     "solution": {
         "name": "Rateable Announcements",
         "id": "a3abac5d-0739-90e0-ccab-df6a073954c9",
-        "version": "0.0.31.0",
+        "version": "0.0.37.0",
         "includeClientSideAssets": true,
         "skipFeatureDeployment": true,
         "webApiPermissionRequests": [
@@ -17,7 +17,7 @@
                 "title": "Rateable Announcements",
                 "description": "Shows announcements in the site header with like/rate buttons, from a Announcements list.",
                 "id": "4a1305d6-a44e-45cf-928b-25621581481f",
-                "version": "0.0.31.0",
+                "version": "0.0.37.0",
                 "assets": {
                     "elementManifests": [
                         "elements.xml",

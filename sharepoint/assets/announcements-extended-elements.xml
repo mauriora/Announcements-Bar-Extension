@@ -9,12 +9,13 @@
             Inherits="TRUE"
             Group="Mauri Ora"
             Description="Announcement (Title, Body, Expires) extended with Start (Date), Urgent (Yes/No) and URL"
-            Version="2">
+            >
         <FieldRefs>
             <FieldRef ID="{bff1e6ac-eccc-40b1-a4ad-71bc76106816}" />
-            <FieldRef ID="{03b11110-d95c-444b-8224-bc0e57e10c5f}" Name="StartDate" DisplayName="Start Date" Required="FALSE" Sealed="TRUE"/>
-            <FieldRef ID="{43f67e2e-4de6-4efa-a1f7-ca195404c93e}" Name="URL" DisplayName="URL" Required="FALSE" />
-            <FieldRef ID="{dd45ef53-22d1-4cda-8c06-be5cd8280cea}" Name="ReportOwner" DisplayName="Owner" Required="FALSE" />
+
+            <FieldRef ID="{64cd368d-2f95-4bfc-a1f9-8d4324ecb007}" Name="StartDate" DisplayName="Start Date" Required="FALSE"/>
+            <FieldRef ID="{c29e077d-f466-4d8e-8bbe-72b66c5f205c}" Name="URL" DisplayName="URL" Required="FALSE" />
+            <FieldRef ID="{2e8881da-0332-4ad9-a565-45b5b8b2702f}" Name="ReportOwner" DisplayName="Owner" Required="FALSE" />
         </FieldRefs>
     </ContentType>
 
