@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+
+    <Field ID="{bff1e6ac-eccc-40b1-a4ad-71bc76106816}" Name="Urgent" DisplayName="Urgent" Type="Boolean" Required="TRUE" Group="Mauri Ora" />
+
+    <ContentType ID="0x0104006F58E7674D4A4A1684013A2D3F258EE2"
+            Name="Announcement Extended"
+            BaseType="0x0104"
+            Inherits="TRUE"
+            Group="Mauri Ora"
+            Description="Announcement (Title, Body, Expires) extended with Start (Date), Urgent (Yes/No) and URL"
+            Version="2">
+        <FieldRefs>
+            <FieldRef ID="{bff1e6ac-eccc-40b1-a4ad-71bc76106816}" />
+            <FieldRef ID="{03b11110-d95c-444b-8224-bc0e57e10c5f}" Name="StartDate" DisplayName="Start Date" Required="FALSE" Sealed="TRUE"/>
+            <FieldRef ID="{43f67e2e-4de6-4efa-a1f7-ca195404c93e}" Name="URL" DisplayName="URL" Required="FALSE" />
+            <FieldRef ID="{dd45ef53-22d1-4cda-8c06-be5cd8280cea}" Name="ReportOwner" DisplayName="Owner" Required="FALSE" />
+        </FieldRefs>
+    </ContentType>
+
+    <ListInstance
+            CustomSchema="announcements-extended-schema.xml"
+            FeatureId="00bfea71-de22-43b2-a848-c05709900100"
+            Title="Announcements"
+            Description="Announcement (Title, Body, Expires) extended with Start (Date), Urgent (Yes/No) and URL"
+            TemplateType="100"
+            Url="Lists/Announcements">
+    </ListInstance>
+
+</Elements>
