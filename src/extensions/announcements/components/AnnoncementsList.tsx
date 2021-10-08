@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { FunctionComponent, useCallback, useContext, useEffect, useMemo, useState } from 'react';
 import * as strings from 'announcementsStrings';
-import { RateableAnnouncement } from '../models/RateableAnnouncement';
+import { AnnouncementExtended } from '@mauriora/model-announcement-extended';
 import { fromUserLookup, CommentsField, LikesCountField, PersonaHoverCard, RatingField, UserPersona } from '@mauriora/utils-spfx-controls-react';
 import { Stack, MessageBar, MessageBarType, Link, Text, StackItem, PersonaSize, IMessageBarStyles, IStackTokens } from '@fluentui/react';
 import { observer } from 'mobx-react-lite';
@@ -13,7 +13,7 @@ interface RenderAnnouncementsProps {
 }
 
 interface AnnouncementContentProps {
-    announcement: RateableAnnouncement;
+    announcement: AnnouncementExtended;
 }
 
 const messageBarStyles: IMessageBarStyles = {

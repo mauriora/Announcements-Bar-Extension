@@ -1,7 +1,7 @@
 {
   "name": "@mauriora/rateable-announcements",
   "description": "SPFx announcement bar supporting likes, stars and comments",
-  "version": "0.0.12",
+  "version": "0.0.15",
   "private": true,
   "main": "lib/index.js",
   "author": {
@@ -28,6 +28,7 @@
   "dependencies": {
     "@fluentui/react": "^8.16.0",
     "@mauriora/controller-sharepoint-list": "*",
+    "@mauriora/model-announcement-extended": "*",
     "@mauriora/utils-spfx-controls-react": "*",
     "@microsoft/sp-application-base": "1.12.1",
     "@microsoft/sp-core-library": "^1.12.1",

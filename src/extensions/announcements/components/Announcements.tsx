@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { FunctionComponent, useCallback, useEffect, useMemo, useState } from 'react';
-import { RateableAnnouncement } from '../models/RateableAnnouncement';
+import { AnnouncementExtended } from '@mauriora/model-announcement-extended';
 import { getCreateByIdOrTitle, ListItem, SharePointList, SharePointModel, getCurrentUser } from '@mauriora/controller-sharepoint-list';
 import { ErrorBoundary, useAsyncError } from '@mauriora/utils-spfx-controls-react';
 import { Spinner } from '@fluentui/react';
@@ -13,7 +13,7 @@ export interface IAnnouncementsProps {
     culture: string;
 }
 
-export const ModelContext = React.createContext<SharePointModel<RateableAnnouncement>>(undefined);
+export const ModelContext = React.createContext<SharePointModel<AnnouncementExtended>>(undefined);
 ModelContext.displayName = 'ModelContext';
 
 export const AcknkowledgedContext = React.createContext<SharePointModel<ListItem>>(undefined);
@@ -22,7 +22,7 @@ AcknkowledgedContext.displayName = 'AcknkowledgedContext';
 
 const AnnouncementsLoader: FunctionComponent<IAnnouncementsProps> = ({ culture, listName, siteUrl, acknowledgedListName }) => {
     const [controller, setController] = useState<SharePointList>(undefined);
-    const [announcements, setAnnouncements] = useState<SharePointModel<RateableAnnouncement>>(undefined);
+    const [announcements, setAnnouncements] = useState<SharePointModel<AnnouncementExtended>>(undefined);
     const [acknowledgements, setAcknowledgements] = useState<SharePointModel<ListItem>>(undefined);
     const throwError = useAsyncError();
     const currentUser = useMemo(() => getCurrentUser(''), []);
@@ -35,7 +35,7 @@ const AnnouncementsLoader: FunctionComponent<IAnnouncementsProps> = ({ culture, 
                 const newController = await getCreateByIdOrTitle(listName, siteUrl);
                 const now: string = new Date().toISOString();
                 const newModel = await newController.addModel(
-                    RateableAnnouncement,
+                    AnnouncementExtended,
                     `(StartDate le datetime'${now}' or StartDate eq null) and (Expires ge datetime'${now}' or Expires eq null)`
                 );
                 if(0 === newModel.records.length ) 
