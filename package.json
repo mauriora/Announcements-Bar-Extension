@@ -1,7 +1,7 @@
 {
   "name": "@mauriora/rateable-announcements",
   "description": "SPFx announcement bar supporting likes, stars and comments",
-  "version": "0.0.59",
+  "version": "0.0.66",
   "private": true,
   "main": "lib/index.js",
   "author": {

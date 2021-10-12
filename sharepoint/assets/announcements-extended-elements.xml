@@ -18,14 +18,4 @@
             <FieldRef ID="{2e8881da-0332-4ad9-a565-45b5b8b2702f}" Name="ReportOwner" DisplayName="Owner" Required="FALSE" />
         </FieldRefs>
     </ContentType>
-
-    <ListInstance
-            CustomSchema="announcements-extended-schema.xml"
-            FeatureId="00bfea71-de22-43b2-a848-c05709900100"
-            Title="Announcements"
-            Description="Announcement (Title, Body, Expires) extended with Start (Date), Urgent (Yes/No) and URL"
-            TemplateType="100"
-            Url="Lists/Announcements">
-    </ListInstance>
-
 </Elements>
