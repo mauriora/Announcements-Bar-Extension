@@ -3,7 +3,7 @@
     "solution": {
         "name": "Rateable Announcements",
         "id": "a3abac5d-0739-90e0-ccab-df6a073954c9",
-        "version": "0.0.66.0",
+        "version": "0.0.67.0",
         "includeClientSideAssets": true,
         "skipFeatureDeployment": true,
         "webApiPermissionRequests": [
@@ -17,7 +17,7 @@
                 "title": "Rateable Announcements bar",
                 "description": "Install on the one site per tenant, that has the announcements list. This package contains the 'Acknowledged Annoncements' List and the Extended announcements content-type.",
                 "id": "4a1305d6-a44e-45cf-928b-25621581481f",
-                "version": "0.0.66.0",
+                "version": "0.0.67.0",
                 "assets": {
                     "elementManifests": [
                         "elements.xml",

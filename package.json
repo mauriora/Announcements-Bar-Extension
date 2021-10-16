@@ -1,7 +1,7 @@
 {
   "name": "@mauriora/rateable-announcements",
   "description": "SPFx announcement bar supporting likes, stars and comments",
-  "version": "0.0.66",
+  "version": "0.0.67",
   "private": true,
   "main": "lib/index.js",
   "author": {
@@ -17,10 +17,9 @@
     "node": ">=14.0.0"
   },
   "scripts": {
-    "initguids": "node generateNewGuidsResetVersions.js",
     "lint": "eslint .",
-    "build-release": "node incrementVersions.js && gulp clean && gulp bundle --ship && gulp package-solution --ship",
-    "build-debug": "node incrementVersions.js && gulp clean && gulp bundle && gulp package-solution",
+    "build-release": "incrementVersions && gulp clean && gulp bundle --ship && gulp package-solution --ship",
+    "build-debug": "incrementVersions && gulp clean && gulp bundle && gulp package-solution",
     "clean": "gulp clean",
     "test": "gulp test",
     "serve": "gulp serve-deprecated"
@@ -50,6 +49,7 @@
     "reflect-metadata": "^0.1.13"
   },
   "devDependencies": {
+    "@mauriora/spfx-packaging": "0.0.1",
     "@microsoft/rush-stack-compiler-4.2": "^0.1.1",
     "@microsoft/sp-build-web": "^1.12.1",
     "@microsoft/sp-module-interfaces": "^1.12.1",
@@ -69,7 +69,6 @@
     "eslint": "^7.32.0",
     "eslint-plugin-react": "^7.25.1",
     "gulp": "^4.0.2",
-    "gulp-eslint7": "^0.3.1",
-    "versiony": "^2.0.1"
+    "gulp-eslint7": "^0.3.1"
   }
 }
