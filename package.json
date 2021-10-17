@@ -1,7 +1,7 @@
 {
   "name": "@mauriora/rateable-announcements",
   "description": "SPFx announcement bar supporting likes, stars and comments",
-  "version": "0.0.67",
+  "version": "0.0.74",
   "private": true,
   "main": "lib/index.js",
   "author": {
@@ -49,6 +49,7 @@
     "reflect-metadata": "^0.1.13"
   },
   "devDependencies": {
+    "@mauriora/eslint-config-react": "0.0.1",
     "@mauriora/spfx-packaging": "0.0.1",
     "@microsoft/rush-stack-compiler-4.2": "^0.1.1",
     "@microsoft/sp-build-web": "^1.12.1",
