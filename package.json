@@ -1,11 +1,11 @@
 {
-  "name": "@mauriora/rateable-announcements",
-  "description": "SPFx announcement bar supporting likes, stars and comments",
-  "version": "0.0.101",
+  "name": "@mauriora/announcements-bar-extension",
+  "description": "SharePoint announcement bar supporting likes, stars and comments using SPFx.",
+  "version": "0.1.1",
   "private": true,
   "main": "lib/index.js",
   "author": {
-    "name": "Mauri-Ora",
+    "name": "Mauri Ora",
     "email": "dennis.kuhn@mauriora.co.nz"
   },
   "contributors": [

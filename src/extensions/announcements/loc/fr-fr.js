@@ -1,10 +1,10 @@
 define([], function () {
     return {
-        "Title": "RateableAnnouncementsExtension",
+        "Title": "AnnouncementsBar",
         "Close": "Fermer",
         "": "",
-        "Commented": "commented",
-        "AddCommentPlaceholder": "Add a comment and hit enter",
-        "SendEmailButton": "Send email"
+        "Commented": "a commenté",
+        "AddCommentPlaceholder": "Ajoutez un commentaire et appuyez sur Entrée",
+        "SendEmailButton": "Envoyer un e-mail"
     }
 });

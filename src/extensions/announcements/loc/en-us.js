@@ -1,6 +1,6 @@
 define([], function () {
     return {
-        "Title": "RateableAnnouncementsExtension",
+        "Title": "AnnouncementsBar",
         "Close": "Close",
         "": "",
         "Commented": "commented",

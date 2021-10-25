@@ -7,7 +7,7 @@ import { configure } from 'mobx';
 
 export const QUALIFIED_NAME = 'Extension.ApplicationCustomizer.RateableAnnouncements';
 
-export interface IRateableAnnouncementsExtensionProperties {
+export interface IAnnouncementsBarProperties {
     siteUrl: string;
     listName: string;
     acknowledgedListName: string;
@@ -20,7 +20,7 @@ configure({
     enforceActions: "never"
 });
 
-export default class RateableAnnouncementsExtension extends BaseApplicationCustomizer<IRateableAnnouncementsExtensionProperties> {
+export default class AnnouncementsBar extends BaseApplicationCustomizer<IAnnouncementsBarProperties> {
 
     protected async onInit(): Promise<void> {
         console.log(

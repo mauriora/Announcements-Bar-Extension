@@ -5,8 +5,8 @@
     "announcements.bundle": {
       "components": [
         {
-          "entrypoint": "./lib/extensions/announcements/RateableAnnouncementsExtension.js",
-          "manifest": "./src/extensions/announcements/RateableAnnouncementsExtension.manifest.json"
+          "entrypoint": "./lib/extensions/announcements/AnnouncementsBar.js",
+          "manifest": "./src/extensions/announcements/AnnouncementsBar.manifest.json"
         }
       ]
     }
