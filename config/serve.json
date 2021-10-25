@@ -6,7 +6,7 @@
     "default": {
       "pageUrl": "https://denniskuhn.sharepoint.com/sites/CTest/SitePages/Home.aspx",
       "customActions": {
-        "188a73d9-a68e-381e-4625-a5f0cf7c0024": {
+        "f4e7b2fc-be9a-43de-bb92-4a67c3f72793": {
           "location": "ClientSideExtension.ApplicationCustomizer",
           "properties": {
             "listName": "Announcements",
@@ -19,7 +19,7 @@
     "mauriora": {
       "pageUrl": "https://mauriorae3.sharepoint.com/sites/DevOps/SitePages/Home.aspx",
       "customActions": {
-        "188a73d9-a68e-381e-4625-a5f0cf7c0024": {
+        "f4e7b2fc-be9a-43de-bb92-4a67c3f72793": {
           "location": "ClientSideExtension.ApplicationCustomizer",
           "properties": {
             "listName": "Announcements",

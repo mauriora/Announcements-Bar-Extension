@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Elements xmlns="http://schemas.microsoft.com/sharepoint/">
     <CustomAction
-        Title="Mauri-Ora-Rateable-Announcements"
+        Title="Mauri-Ora-Announcements-Bar"
         Location="ClientSideExtension.ApplicationCustomizer"
-        ClientSideComponentId="188a73d9-a68e-381e-4625-a5f0cf7c0024"
+        ClientSideComponentId="f4e7b2fc-be9a-43de-bb92-4a67c3f72793"
         ClientSideComponentProperties="{&quot;listName&quot;:&quot;Announcements&quot;, &quot;acknowledgedListName&quot;:&quot;AcknowledgedAnnouncements&quot;, &quot;siteUrl&quot;:&quot;/sites/CTest&quot;}">
     </CustomAction>
 </Elements>

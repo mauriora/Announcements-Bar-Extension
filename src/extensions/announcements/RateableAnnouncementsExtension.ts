@@ -23,21 +23,36 @@ configure({
 export default class RateableAnnouncementsExtension extends BaseApplicationCustomizer<IRateableAnnouncementsExtensionProperties> {
 
     protected async onInit(): Promise<void> {
+        console.log(
+            `${this?.context?.manifest?.alias} [${this?.context?.manifest?.id}] version=${this?.context?.manifest?.version} onInit start`,
+            {
+                properties: this.properties,
+                context: this.context,
+                me: this
+            });
         super.onInit();
 
         if (!this.properties.siteUrl || !this.properties.listName || !this.properties.acknowledgedListName) {
-            const message = `${this.context.manifest.alias} [${this.context.manifest.id}] version=${this.context.manifest.version} onInit Missing required configuration parameters`;
+            const message = `${this?.context?.manifest?.alias} [${this?.context?.manifest?.id}] version=${this?.context?.manifest?.version} onInit Missing required configuration parameters`;
             console.error(message, { context: this.context, properties: this.properties });
-            return Promise.reject(new Error(message));
+            // return Promise.reject(new Error(message));
         }
-        await Controller.init(this.context);
+
+        try {
+            await Controller.init(this.context);
+        } catch (err) {
+            console.error(
+                `${this?.context?.manifest?.alias} [${this?.context?.manifest?.id}] version=${this?.context?.manifest?.version} onInit Controller.init caught` +
+                `${(err as Error).message ?? err}` 
+                );
+        }
 
         const header = this.context.placeholderProvider.tryCreateContent(PlaceholderName.Top);
 
         if (!header) {
-            const message = `${this.context.manifest.alias} [${this.context.manifest.id}] version=${this.context.manifest.version} onInit Could not find placeholder Top`;
+            const message = `${this?.context?.manifest?.alias} [${this?.context?.manifest?.id}] version=${this?.context?.manifest?.version} onInit Could not find placeholder Top`;
             console.error(message, { context: this.context, properties: this.properties });
-            return Promise.reject(new Error(message));
+            // return Promise.reject(new Error(message));
         }
 
         const site = this.context.pageContext.site;
@@ -52,6 +67,6 @@ export default class RateableAnnouncementsExtension extends BaseApplicationCusto
 
         ReactDOM.render(elem, header.domElement);
 
-        console.log(`${this.context.manifest.alias} [${this.context.manifest.id}] version=${this.context.manifest.version} onInit finished`, { propertiesDeconstructed: { ...this.properties }, properties: this.properties, context: this.context, contextDeconstructed: { ...this.context } });
+        console.log(`${this?.context?.manifest?.alias} [${this?.context?.manifest?.id}] version=${this?.context?.manifest?.version} onInit finished`, { propertiesDeconstructed: { ...this.properties }, properties: this.properties, context: this.context, contextDeconstructed: { ...this.context } });
     }
 }
