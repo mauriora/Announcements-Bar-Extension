@@ -1,7 +1,8 @@
 {
   "name": "@mauriora/announcements-bar-extension",
   "description": "SharePoint announcement bar supporting likes, stars and comments using SPFx.",
-  "version": "0.1.3",
+  "version": "0.1.4",
+  "license": "MIT",
   "private": true,
   "main": "lib/index.js",
   "author": {
@@ -18,7 +19,7 @@
   },
   "scripts": {
     "lint": "eslint .",
-    "build-release": "incrementVersions && gulp clean && gulp bundle --ship && gulp package-solution --ship",
+    "build": "incrementVersions && gulp clean && gulp bundle --ship && gulp package-solution --ship",
     "build-debug": "incrementVersions && gulp clean && gulp bundle && gulp package-solution",
     "clean": "gulp clean",
     "test": "gulp test",
