@@ -19,8 +19,10 @@
   },
   "scripts": {
     "lint": "eslint .",
-    "build": "incrementVersions && gulp clean && gulp bundle --ship && gulp package-solution --ship",
-    "build-debug": "incrementVersions && gulp clean && gulp bundle && gulp package-solution",
+    "version": "syncVersions",
+    "prepare": "yarn build",
+    "build": "gulp clean && gulp bundle --ship && gulp package-solution --ship",
+    "build-debug": "gulp clean && gulp bundle && gulp package-solution",
     "clean": "gulp clean",
     "test": "gulp test",
     "serve": "gulp serve-deprecated"
