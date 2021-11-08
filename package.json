@@ -1,7 +1,7 @@
 {
   "name": "@mauriora/announcements-bar-extension",
   "description": "SharePoint announcement bar supporting likes, stars and comments using SPFx.",
-  "version": "0.1.14",
+  "version": "0.1.15",
   "license": "MIT",
   "private": true,
   "main": "lib/index.js",
@@ -29,9 +29,9 @@
   },
   "dependencies": {
     "@fluentui/react": "^8.16.0",
-    "@mauriora/controller-sharepoint-list": "^0.1.8",
-    "@mauriora/model-announcement-extended": "^0.0.9",
-    "@mauriora/utils-spfx-controls-react": "^0.1.7",
+    "@mauriora/controller-sharepoint-list": "^0.1.9",
+    "@mauriora/model-announcement-extended": "^0.0.10",
+    "@mauriora/utils-spfx-controls-react": "^0.1.8",
     "@microsoft/sp-application-base": "1.12.1",
     "@microsoft/sp-core-library": "1.12.1",
     "@microsoft/sp-property-pane": "1.12.1",
