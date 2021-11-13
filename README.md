@@ -76,3 +76,38 @@ The point of interest is `onInit()` creating [components/Announcements.tsx](./sr
 #### AnnouncementsList
 
 [components/AnnouncementsList.tsx](./src/extensions/announcements/components/AnnouncementsList.tsx) exports the function component `AnnouncementsList`. It handles the acknowlegment of Announcements and renders a stack of `AnnouncementContent`.
+
+AnnouncementsList works like:
+
+```typescript
+    return <Stack>
+        {announcements.map(announcement =>
+            <StackItem>
+                <MessageBar
+                    onDismiss={() => onDismiss(announcement.id)}
+                    actions={
+                        <Stack horizontal>
+                            <StackItem>
+                                <CommentsField />
+                            </StackItem>
+                            {'Likes' === votingExperience ?
+                                <StackItem>
+                                    <LikesCountField />
+                                </StackItem>
+                                :
+                                'Ratings' === votingExperience ?
+                                    <StackItem>
+                                        <RatingField />
+                                    </StackItem>
+                                    :
+                                    undefined
+                            }
+                        </Stack>
+                    }
+                >
+                    <AnnouncementContent announcement={announcement} />
+                </MessageBar>
+            </StackItem>
+        )}
+    </Stack>;
+```
