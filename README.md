@@ -80,6 +80,19 @@ The point of interest is `onInit()` creating [components/Announcements.tsx](./sr
 AnnouncementsList works like:
 
 ```typescript
+    const onDismiss = useCallback(
+        async (id: number) => {
+            acknowledgedAnnouncements.push(id);
+            const jsonString = JSON.stringify(acknowledgedAnnouncements);
+            const record = acknowledgedModel.records.length ? acknowledgedModel.records[0] : acknowledgedModel.newRecord;
+            record.title = jsonString;
+            await acknowledgedModel.submit(record);
+
+            setAcknowledgedAnnouncements(acknowledgedAnnouncements);
+        },
+        [acknowledgedAnnouncements, acknowledgedModel]
+    );
+
     return <Stack>
         {announcements.map(announcement =>
             <StackItem>
