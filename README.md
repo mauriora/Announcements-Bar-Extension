@@ -72,3 +72,7 @@ The point of interest is `onInit()` creating [components/Announcements.tsx](./sr
 [components/Announcements.tsx](./src/extensions/announcements/components/Announcements.tsx) exports the function component `Announcements`. It creates the global `ErrorBoundary` with `AnnouncementsLoader` as child.
 
 `AnnouncementsLoader` shows a spinner until the models are loaded. Then it creates react contexts for acknkowledged announcements and the announcements. The child of the contexts is the `AnnouncementsList`.
+
+#### AnnouncementsList
+
+[components/AnnouncementsList.tsx](./src/extensions/announcements/components/AnnouncementsList.tsx) exports the function component `AnnouncementsList`. It handles the acknowlegment of Announcements and renders a stack of `AnnouncementContent`.
