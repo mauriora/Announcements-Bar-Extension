@@ -23,6 +23,7 @@ configure({
 export default class AnnouncementsBar extends BaseApplicationCustomizer<IAnnouncementsBarProperties> {
 
     protected async onInit(): Promise<void> {
+        /** Print manifest information to console: alias, id, version */
         console.log(
             `${this?.context?.manifest?.alias} [${this?.context?.manifest?.id}] version=${this?.context?.manifest?.version} onInit start`,
             {
@@ -30,14 +31,17 @@ export default class AnnouncementsBar extends BaseApplicationCustomizer<IAnnounc
                 context: this.context,
                 me: this
             });
+
         super.onInit();
 
+        /** Check we got all properties */
         if (!this.properties.siteUrl || !this.properties.listName || !this.properties.acknowledgedListName) {
             const message = `${this?.context?.manifest?.alias} [${this?.context?.manifest?.id}] version=${this?.context?.manifest?.version} onInit Missing required configuration parameters`;
             console.error(message, { context: this.context, properties: this.properties });
             // return Promise.reject(new Error(message));
         }
 
+        /** Initialise SharePoint controller module with context */
         try {
             await Controller.init(this.context);
         } catch (err) {
@@ -47,6 +51,7 @@ export default class AnnouncementsBar extends BaseApplicationCustomizer<IAnnounc
                 );
         }
 
+        /** find DOM element to render Announcement Bar on */
         const header = this.context.placeholderProvider.tryCreateContent(PlaceholderName.Top);
 
         if (!header) {
@@ -58,6 +63,7 @@ export default class AnnouncementsBar extends BaseApplicationCustomizer<IAnnounc
         const site = this.context.pageContext.site;
         const tenantUrl = site.absoluteUrl.replace(site.serverRelativeUrl, "");
 
+        /** Create Announcements React Element */
         const elem: React.ReactElement<IAnnouncementsProps> = React.createElement(Announcements, {
             siteUrl: `${tenantUrl}${this.properties.siteUrl}`,
             listName: this.properties.listName,
@@ -65,6 +71,7 @@ export default class AnnouncementsBar extends BaseApplicationCustomizer<IAnnounc
             culture: this.context.pageContext.cultureInfo.currentUICultureName
         });
 
+        /** Render Announcements on header dom element */
         ReactDOM.render(elem, header.domElement);
 
         console.log(`${this?.context?.manifest?.alias} [${this?.context?.manifest?.id}] version=${this?.context?.manifest?.version} onInit finished`, { propertiesDeconstructed: { ...this.properties }, properties: this.properties, context: this.context, contextDeconstructed: { ...this.context } });
