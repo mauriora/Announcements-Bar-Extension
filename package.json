@@ -3,7 +3,7 @@
   "description": "SharePoint announcement bar supporting likes, stars and comments using SPFx.",
   "version": "0.1.15",
   "license": "MIT",
-  "private": true,
+  "private": false,
   "main": "lib/index.js",
   "author": {
     "name": "Mauri Ora",
