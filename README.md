@@ -11,9 +11,18 @@ The output can be found in [./sharepoint/solution/announcements-bar.sppkg](./sha
 
 ### Code
 
-__`[src/extensions/announcements/AnnouncementsBar.ts](src/extensions/announcements/AnnouncementsBar.ts)`__
-Entry point Class Componenet extended from `BaseApplicationCustomizer`.
-Point of interest is `onInit()`:
+All code is in [src/extensions/announcements](src/extensions/announcements).
+
+- [AnnouncementsBar.ts](src/extensions/announcements/AnnouncementsBar.ts) extension entry point
+- [components/Announcements.tsx](./src/extensions/announcements/components/Announcements.tsx) infrastructure and loading of Models
+- [components/AnnouncementsList.tsx](./src/extensions/announcements/components/AnnouncementsList.tsx) render the announcements.
+
+#### AnnouncementsBar entry
+
+The entry point class component is 
+__[AnnouncementsBar.ts](src/extensions/announcements/AnnouncementsBar.ts)__ . `AnnouncementsBar` is extended from `BaseApplicationCustomizer`.
+
+The point of interest is `onInit()` creating [components/Announcements.tsx](./src/extensions/announcements/components/Announcements.tsx):
 
 ```typescript
     /** Print manifest information to console: alias, id, version */
@@ -57,3 +66,9 @@ Point of interest is `onInit()`:
     /** Render Announcements on header dom element */
     ReactDOM.render(elem, header.domElement);
 ```
+
+#### Announcements
+
+[components/Announcements.tsx](./src/extensions/announcements/components/Announcements.tsx) exports the function component `Announcements`. It creates the global `ErrorBoundary` with `AnnouncementsLoader` as child.
+
+`AnnouncementsLoader` shows a spinner until the models are loaded. Then it creates react contexts for acknkowledged announcements and the announcements. The child of the contexts is the `AnnouncementsList`.

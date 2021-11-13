@@ -86,6 +86,11 @@ const AnnouncementsLoader: FunctionComponent<IAnnouncementsProps> = ({ culture, 
         <Spinner />;
 };
 
+/**
+ * Create global ErrorBoundary with AnnouncementsLoader as child.
+ * @param props are passed to AnnouncementsLoader
+ * @returns 
+ */
 export const Announcements: FunctionComponent<IAnnouncementsProps> = props =>
     <ErrorBoundary>
         <AnnouncementsLoader {...props} />
