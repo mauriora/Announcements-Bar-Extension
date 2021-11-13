@@ -1,7 +1,7 @@
 {
   "name": "@mauriora/announcements-bar-extension",
   "description": "SharePoint announcement bar supporting likes, stars and comments using SPFx.",
-  "version": "0.1.19",
+  "version": "0.1.20",
   "license": "MIT",
   "private": false,
   "main": "lib/index.js",
