@@ -3,7 +3,7 @@
     "solution": {
         "name": "Announcements bar",
         "id": "77b0f461-f4d9-439f-b09c-ab6e2afe6764",
-        "version": "0.1.37.0",
+        "version": "0.1.38.0",
         "includeClientSideAssets": true,
         "skipFeatureDeployment": true,
         "developer": {
@@ -24,7 +24,7 @@
                 "title": "Announcements bar",
                 "description": "Shows announcements from a central list as bar on the top of the page.",
                 "id": "058a3556-e50f-4699-b9d4-0322205ea212",
-                "version": "0.1.37.0",
+                "version": "0.1.38.0",
                 "assets": {
                     "elementManifests": [
                         "elements.xml",
