@@ -1,4 +1,13 @@
-# Source
+# Announcements Bar Extension
+
+- [Source](#source)
+- [Content](#content)
+  - [Code](#code)
+    - [AnnouncementsBar entry](#announcementsbar-entry)
+    - [Announcements](#announcements)
+    - [AnnouncementsList](#announcementslist)
+
+## Source
 
 This is derived from [Announcements SharePoint Framework Application Customizer](https://github.com/pnp/sp-dev-fx-extensions/tree/master/samples/react-application-announcements)
 
@@ -19,7 +28,7 @@ All code is in [src/extensions/announcements](src/extensions/announcements).
 
 #### AnnouncementsBar entry
 
-The entry point class component is 
+The entry point class component is
 __[AnnouncementsBar.ts](src/extensions/announcements/AnnouncementsBar.ts)__ . `AnnouncementsBar` is extended from `BaseApplicationCustomizer`.
 
 The point of interest is `onInit()` creating [components/Announcements.tsx](./src/extensions/announcements/components/Announcements.tsx):
@@ -123,4 +132,4 @@ AnnouncementsList works like:
             </StackItem>
         )}
     </Stack>;
-```
+``
