@@ -18,10 +18,10 @@
   },
   "scripts": {
     "version": "syncVersions",
-    "prepare": "yarn build --ship",
     "publish": "publishPackage git",
     "lint": "eslint .",
-    "build": "createPackage",
+    "build": "createPackage --ship",
+    "build-debug": "createPackage",
     "clean": "gulp clean",
     "test": "gulp test",
     "serve": "servePackage"
@@ -42,6 +42,7 @@
     "ts-node": "^10.4.0"
   },
   "devDependencies": {
+    "@eslint/eslintrc": "^1.2.3",
     "@mauriora/eslint-config-react": "0.0.1",
     "@mauriora/eslint-config-ts": "0.0.1",
     "@mauriora/spfx-packaging": "^0.0.17",
