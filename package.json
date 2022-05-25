@@ -3,7 +3,6 @@
   "description": "SharePoint announcement bar supporting likes, stars and comments using SPFx.",
   "version": "0.1.41",
   "license": "MIT",
-  "private": false,
   "main": "lib/index.js",
   "author": {
     "name": "Mauri Ora",
@@ -19,10 +18,10 @@
   },
   "scripts": {
     "version": "syncVersions",
-    "prepare": "yarn build --ship",
     "publish": "publishPackage git",
     "lint": "eslint .",
-    "build": "createPackage",
+    "build": "createPackage --ship",
+    "build-debug": "createPackage",
     "clean": "gulp clean",
     "test": "gulp test",
     "serve": "servePackage"
@@ -43,9 +42,11 @@
     "ts-node": "^10.4.0"
   },
   "devDependencies": {
+    "@eslint/eslintrc": "^1.2.3",
     "@mauriora/eslint-config-react": "0.0.1",
     "@mauriora/eslint-config-ts": "0.0.1",
-    "@mauriora/spfx-packaging": "^0.0.16",
+    "@mauriora/spfx-packaging": "^0.0.17",
+    "@microsoft/sp-build-web": "1.12.1",
     "@types/react": "16.9.36",
     "@types/react-dom": "16.9.8",
     "@types/webpack-env": "1.13.1",
