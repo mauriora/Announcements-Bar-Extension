@@ -27,7 +27,7 @@
     "serve": "servePackage"
   },
   "dependencies": {
-    "@fluentui/react": "^8.16.0",
+    "@fluentui/react": "^8.69.0",
     "@mauriora/controller-sharepoint-list": "^0.1.10",
     "@mauriora/model-announcement-extended": "^0.0.11",
     "@mauriora/utils-spfx-controls-react": "^0.1.29",
