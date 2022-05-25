@@ -34,12 +34,12 @@
     "@microsoft/sp-application-base": "1.12.1",
     "@microsoft/sp-core-library": "1.12.1",
     "@microsoft/sp-property-pane": "1.12.1",
-    "mobx": "^6.1.8",
-    "mobx-react-lite": "^3.2.0",
+    "mobx": "^6.6.0",
+    "mobx-react-lite": "^3.4.0",
     "react": "16.9.0",
     "react-dom": "16.9.0",
     "reflect-metadata": "^0.1.13",
-    "ts-node": "^10.4.0"
+    "ts-node": "^10.8.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^1.2.3",
@@ -48,15 +48,15 @@
     "@mauriora/spfx-packaging": "^0.0.17",
     "@microsoft/sp-build-web": "1.12.1",
     "@types/react": "16.9.36",
-    "@types/react-dom": "16.9.8",
-    "@types/webpack-env": "1.13.1",
-    "@typescript-eslint/eslint-plugin": "^4.31.0",
-    "@typescript-eslint/parser": "^4.31.0",
-    "@typescript-eslint/typescript-estree": "^4.31.0",
+    "@types/react-dom": "16.9.16",
+    "@types/webpack-env": "1.17.0",
+    "@typescript-eslint/eslint-plugin": "^4.33.0",
+    "@typescript-eslint/parser": "^4.33.0",
+    "@typescript-eslint/typescript-estree": "^4.33.0",
     "eslint": "^7.32.0",
-    "eslint-plugin-react": "^7.25.1",
+    "eslint-plugin-react": "^7.30.0",
     "gulp": "^4.0.2",
-    "gulp-eslint7": "^0.3.1"
+    "gulp-eslint7": "^0.3.2"
   },
   "publishConfig": {
     "dry-run": true
