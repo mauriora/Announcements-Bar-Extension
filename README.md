@@ -1,5 +1,10 @@
 # Announcements Bar Extension
 
+> This is part of the [hybrid repro MVC SharePoint example implementation](https://github.com/mauriora/reusable-hybrid-repo-mvc-spfx-examples)
+
+## Table of content
+
+- [Table of content](#table-of-content)
 - [Source](#source)
 - [Content](#content)
   - [Code](#code)
