@@ -32,7 +32,7 @@ const stackTokens: IStackTokens = {
 
 const AnnouncementContent: FunctionComponent<AnnouncementContentProps> = observer(({ announcement }) =>
     <Stack horizontal horizontalAlign='space-between'>
-        {announcement.contentOwner &&
+        {announcement.contentOwner?.claims &&
             <StackItem>
                 <PersonaHoverCard user={fromUserLookup(announcement.contentOwner)} sendEmailButtonText={strings.SendEmailButton}>
                     <UserPersona

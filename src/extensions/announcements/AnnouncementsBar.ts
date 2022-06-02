@@ -46,7 +46,7 @@ export default class AnnouncementsBar extends BaseApplicationCustomizer<IAnnounc
             await Controller.init(this.context);
         } catch (err) {
             console.error(
-                `${this?.context?.manifest?.alias} [${this?.context?.manifest?.id}] version=${this?.context?.manifest?.version} onInit Controller.init caught` +
+                `${this?.context?.manifest?.alias} [${this?.context?.manifest?.id}] version=${this?.context?.manifest?.version} onInit Controller.init caught: ` +
                 `${(err as Error).message ?? err}` 
                 );
         }
