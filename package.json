@@ -63,8 +63,5 @@
         "eslint-plugin-react": "^7.30.0",
         "gulp": "^4.0.2",
         "gulp-eslint7": "^0.3.2"
-    },
-    "publishConfig": {
-        "dry-run": true
     }
 }
