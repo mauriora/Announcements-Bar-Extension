@@ -16,7 +16,7 @@
 
 This is derived from [Announcements SharePoint Framework Application Customizer](https://github.com/pnp/sp-dev-fx-extensions/tree/master/samples/react-application-announcements)
 
-[Please refer to the root workspace documentation](../../README.md)
+[Please refer to the root workspace documentation](https://github.com/mauriora/Announcements-Bar-Spfx/blob/main/README.md)
 
 ## Content
 
